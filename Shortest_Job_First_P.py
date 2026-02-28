@@ -9,10 +9,10 @@ def shortest_job_first_p(processes):
     avg_wt = 0
     completed = []
     remaining = queue
-    completion_time = {}
     
     # To store original burst times
     burst_time = {p: processes[p][1] for p in processes}
+    completion_time = {}
     
     while remaining:
         ready = []
