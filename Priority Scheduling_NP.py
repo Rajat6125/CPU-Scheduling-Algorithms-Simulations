@@ -26,7 +26,6 @@ def priority_scheduling_np(processes):
         for j in ready:
             if j[1][2]<high[1][2]:
                 high=j
-        
         remaining.remove(high)
         
         time+=high[1][1]
