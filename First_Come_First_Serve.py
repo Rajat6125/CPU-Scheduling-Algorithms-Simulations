@@ -1,5 +1,6 @@
 import pandas as pd
 def fcfs_cpu_scheduling(processes):
+    original_order=list(processes.keys())
     queue=list(processes.items())
     for i in range(len(queue)):
         for j in range(0,len(queue)-i-1):
@@ -22,12 +23,14 @@ def fcfs_cpu_scheduling(processes):
         avg_wt+=queue[i][4]
     
     res=pd.DataFrame.from_dict(queue,orient="index",columns=["AT","BT","CT","TAT","WT"])
+    
+    res = res.loc[original_order]
     res.rename(columns={"index": "Process"}, inplace=True)
     print(res.to_string())
     print("\nProcess Execution: ",list(queue.keys()))
     print("Average Turn around Time:",avg_tat/len(queue))
     print("Average Waiting Time:",avg_wt/len(queue))
     
-# processes={"P1":[3,5],"P2":[5,2],"P3":[6,4],"P4":[7,3],"P5":[9,1]}
-processes={"P1":[0,10],"P2":[1,6],"P3":[3,2],"P4":[5,4]}
+processes={"P1":[3,5],"P2":[5,2],"P3":[6,4],"P4":[7,3],"P5":[9,1]}
+# processes={"P1":[0,10],"P2":[1,6],"P3":[3,2],"P4":[5,4]}
 fcfs_cpu_scheduling(processes)
