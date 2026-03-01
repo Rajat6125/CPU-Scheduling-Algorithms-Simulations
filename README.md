@@ -1,117 +1,129 @@
-## 🖥️ CPU Scheduling Algorithms Visual Simulator
+# 🖥️ CPU Scheduling Algorithms Visualizer
 
-A complete GUI-based CPU Scheduling Simulator built using Python (Tkinter + Pandas + ttk + PIL) that visually demonstrates how different CPU Scheduling Algorithms work using animated Gantt Charts and detailed result tables.
+An interactive desktop application built with **Python** and **Tkinter** that visualizes major CPU scheduling algorithms using animated Gantt charts and a clean professional UI.
 
-This project is specially designed for Operating System learners to understand scheduling concepts clearly through visualization and real-time calculation.
+---
 
-## 📌 Project Overview
+## 🧠 What is CPU Scheduling?
 
-CPU Scheduling is a fundamental concept in Operating Systems. It determines which process will use the CPU at any given time. Efficient scheduling improves:
+CPU scheduling is an operating system mechanism that decides which process gets CPU time when multiple processes are ready for execution.
 
-CPU Utilization
+### Key Terms
 
-Throughput
+- **Arrival Time (AT)** – Time when a process enters the ready queue  
+- **Burst Time (BT)** – CPU time required by the process  
+- **Completion Time (CT)** – Time when process finishes execution  
+- **Turnaround Time (TAT)** = CT − AT  
+- **Waiting Time (WT)** = TAT − BT  
 
-Turnaround Time
+### Performance Metrics
 
-Waiting Time
+- **Average Turnaround Time**
+- **Average Waiting Time**
 
-Response Time
+---
 
-This simulator allows users to:
+## 🔄 Implemented Scheduling Algorithms
 
-✔ Enter custom process data
-✔ Run multiple scheduling algorithms
-✔ Visualize execution using animated Gantt Chart
-✔ View calculated metrics in a styled result table
-✔ Compare average turnaround and waiting times
+### Non-Preemptive
 
-## 📖 Theory & Concepts
-🔹 What is CPU Scheduling?
+1. **First Come First Serve (FCFS)**  
+   Processes execute in order of arrival.
 
-CPU Scheduling is the process of selecting one process from the ready queue to allocate the CPU. The scheduler decides the execution order based on a scheduling algorithm.
+2. **Shortest Job First (SJF)**  
+   Process with smallest burst time executes first.
 
-🔹 Important Terminologies
-Term	Meaning
-AT (Arrival Time)	Time at which process enters ready queue
-BT (Burst Time)	CPU execution time required
-CT (Completion Time)	Time at which process completes
-TAT (Turnaround Time)	CT − AT
-WT (Waiting Time)	TAT − BT
-Priority	Process priority (lower number = higher priority)
-Time Quantum	Fixed CPU time slice (Round Robin)
-🧠 Implemented Algorithms
-1️⃣ First Come First Serve (FCFS) – Non-Preemptive
-📌 Concept
+3. **Priority Scheduling (Non-Preemptive)**  
+   Process with highest priority executes first.
 
-Processes are executed in the order they arrive.
+---
 
-Simple and easy to implement.
+### Preemptive
 
-Can cause Convoy Effect (long job blocks short jobs).
+4. **Shortest Remaining Time First (SRTF)**  
+   Preemptive version of SJF.
 
-⚙️ Working
+5. **Round Robin (RR)**  
+   Each process gets fixed time quantum in circular order.
 
-Sort by Arrival Time.
+---
 
-Execute each process fully before moving to next.
+## ✨ Core Features
 
-2️⃣ Shortest Job First (SJF) – Non-Preemptive
-📌 Concept
+- 5 CPU Scheduling Algorithms
+- Animated Gantt Chart Visualization
+- Automatic TAT and WT Calculation
+- Clean Multi-Page GUI
+- Interactive Process Input
+- Time Quantum & Priority Support
+- Back Navigation Between Pages
 
-Process with smallest Burst Time is selected.
+---
 
-Reduces average waiting time.
+## 🚀 Requirements
 
-Can cause starvation of longer jobs.
+- Python 3.6+
+- Tkinter
+- Pandas
+- Pillow
 
-⚙️ Working
+Install dependencies:
 
-At each scheduling decision:
+```bash
+pip install pandas pillow
+```
 
-Select shortest job among arrived processes.
+---
 
-3️⃣ Priority Scheduling – Non-Preemptive
-📌 Concept
+## 📖 How to Use
 
-Process with highest priority (lowest number) runs first.
+1. Run the application:
 
-Can lead to starvation of low-priority processes.
+```bash
+python cpu_scheduler.py
+```
 
-⚙️ Working
+2. Select a scheduling algorithm.
 
-Among available processes, select one with minimum priority value.
+3. Enter:
+   - Number of processes
+   - Arrival Time
+   - Burst Time
+   - Priority (if required)
+   - Time Quantum (for Round Robin)
 
-4️⃣ Shortest Remaining Time First (SRTF) – Preemptive
-📌 Concept
+4. Click **Run** to see:
+   - Animated Gantt Chart
+   - Process Table with CT, TAT, WT
+   - Average Waiting & Turnaround Time
 
-Preemptive version of SJF.
+---
 
-If a shorter job arrives, current job is preempted.
+## 📊 Algorithm Time Complexity
 
-Minimizes average waiting time.
+| Algorithm | Time Complexity | Space Complexity |
+|------------|----------------|-----------------|
+| FCFS | O(n log n) | O(n) |
+| SJF | O(n²) | O(n) |
+| Priority | O(n²) | O(n) |
+| SRTF | O(n²) | O(n) |
+| Round Robin | O(n²) | O(n) |
 
-⚙️ Working
+---
 
-At every time unit:
+## 🚧 Future Improvements
 
-Choose process with shortest remaining burst time.
+- Multi-core CPU scheduling visualization  
+- Algorithm comparison mode  
+- Export results to CSV/PDF  
+- Dark mode support  
+- Web-based version  
 
-Process switching handled dynamically.
+---
 
-5️⃣ Round Robin (RR) – Preemptive
-📌 Concept
+## 📌 Author
 
-Each process gets fixed Time Quantum.
+Developed as an Operating Systems simulation project.
 
-Fair scheduling.
-
-Used in time-sharing systems.
-
-⚙️ Working
-
-Execute process for Time Quantum.
-
-If not finished → move to end of ready queue.
-
-Repeat until all complete.
+Project Link:  
+https://github.com/yourusername/cpu-scheduling-visualizer
