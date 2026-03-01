@@ -125,5 +125,4 @@ python CPU_Scheduling_Algorithms.py
 
 Developed as an Operating Systems simulation project.
 
-Project Link:  
-https://github.com/yourusername/cpu-scheduling-visualizer
+Project Link: https://github.com/Rajat6125/CPU-Scheduling-Algorithms-Simulations
