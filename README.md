@@ -80,7 +80,7 @@ pip install pandas pillow
 1. Run the application:
 
 ```bash
-python cpu_scheduler.py
+python CPU_Scheduling_Algorithms.py
 ```
 
 2. Select a scheduling algorithm.
